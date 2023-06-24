@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Logout{% endblock %}
+
+{% block content %}
+    <div class="card mt-5">
+        <div class="card-body">
+            <h5 class="card-title">You have been logged out</h5>
+            <p class="card-text">Thank you for using our site.</p>
+            <a href="{% url 'home' %}" class="btn btn-primary">Home</a>
+        </div>
+    </div>
+{% endblock %}
