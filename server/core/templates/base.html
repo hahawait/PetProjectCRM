@@ -46,10 +46,83 @@
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="/accounts/login">Войти</a>
+                            <!-- Ссылка-триггер модального окна авторизации -->
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#Login">Войти</a>
+                            <!-- Модальное окно авторизации -->
+                            <div class="modal fade" id="Login" tabindex="-1" aria-labelledby="LoginLabel" aria-hidden="true">
+                                <div class="modal-dialog small">
+                                    <div class="modal-content small">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title" id="LoginLabel">Авторизация</h3>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                                        </div>
+                                        <form method="post" action="{% url 'login' %}">
+                                            {% csrf_token %}
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="id_username" class="form-label">Имя пользователя</label>
+                                                    <input type="text" class="form-control" id="id_username" name="username" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="id_password" class="form-label">Пароль</label>
+                                                    <input type="password" class="form-control" id="id_password" name="password" required>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                                <button type="submit" class="btn btn-primary">Войти</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/accounts/register">Регистрация</a>
+                            <!-- Ссылка-триггер модального окна регистрации -->
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#Register">Регистрация</a>
+                            <!-- Модальное окно регистрации -->
+                            <div class="modal fade" id="Register" tabindex="-1" aria-labelledby="RegisterLabel" aria-hidden="true">
+                                <div class="modal-dialog small">
+                                    <div class="modal-content small">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title" id="RegisterLabel">Регистрация</h3>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                                        </div>
+                                        <form method="post" action="{% url 'register' %}">
+                                            {% csrf_token %}
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="id_username" class="form-label small">Имя пользователя</label>
+                                                    <input type="text" class="form-control" id="id_username" name="username" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="id_email" class="form-label small">Email</label>
+                                                    <input type="email" class="form-control" id="id_email" name="email" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="id_password1" class="form-label small">Пароль</label>
+                                                    <input type="password" class="form-control" id="id_password1" name="password1" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="id_password2" class="form-label small">Повторите пароль</label>
+                                                    <input type="password" class="form-control" id="id_password2" name="password2" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="id_role" class="small">Выберите роль</label>
+                                                    <select class="form-control" id="id_role" name="role">
+                                                        <option value="employer">Работодатель</option>
+                                                        <option value="applicant">Соискатель</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                                <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </li>
                     {% endif %}
                 </ul>
