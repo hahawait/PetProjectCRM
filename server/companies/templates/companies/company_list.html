@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <h1>Список компаний</h1>
+      <form method="GET" action="{% url 'company-list' %}">
+        <div class="input-group mb-3">
+          <input type="text" name="q" class="form-control" placeholder="Поиск компаний" value="{{ search_query }}">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Найти</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-lg-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Название компании</th>
+            <th>Адрес</th>
+            <th>Описание</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for company in company_list %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ company.name }}</td>
+            <td>{{ company.address }}</td>
+            <td>{{ company.description }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

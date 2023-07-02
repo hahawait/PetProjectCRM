@@ -1,0 +1,78 @@
+[
+    {
+      "model": "companies.company",
+      "pk": 1,
+      "fields": {
+        "user": 1,
+        "name": "Рога и Копыта",
+        "address": "Москва, ул. Пушкина, д. 10",
+        "contact_number": "+7 (123) 456-7890",
+        "email": "info@rogaikopyta.com",
+        "website": "https://www.rogaikopyta.com",
+        "description": "Компания, занимающаяся производством и продажей товаров для животных",
+        "created_at": "2023-06-01T09:00:00Z",
+        "updated_at": "2023-06-05T15:30:00Z"
+      }
+    },
+    {
+      "model": "companies.company",
+      "pk": 2,
+      "fields": {
+        "user": 3,
+        "name": "Торговый Дом Александров",
+        "address": "Санкт-Петербург, пр. Невский, д. 20",
+        "contact_number": "+7 (987) 654-3210",
+        "email": "info@alexandrovtorg.ru",
+        "website": "https://www.alexandrovtorg.ru",
+        "description": "Крупная торговая компания, специализирующаяся на продаже электроники",
+        "created_at": "2023-06-10T12:15:00Z",
+        "updated_at": "2023-06-15T09:45:00Z"
+      }
+    },
+    {
+      "model": "companies.company",
+      "pk": 3,
+      "fields": {
+        "user": 5,
+        "name": "СтройИнвест",
+        "address": "Екатеринбург, ул. Ленина, д. 30",
+        "contact_number": "+7 (555) 555-5555",
+        "email": "info@stroyinvest.ru",
+        "website": "https://www.stroyinvest.ru",
+        "description": "Строительная компания, занимающаяся разработкой и строительством жилых и коммерческих объектов",
+        "created_at": "2023-06-20T16:30:00Z",
+        "updated_at": "2023-06-25T11:20:00Z"
+      }
+    },
+    {
+      "model": "companies.company",
+      "pk": 4,
+      "fields": {
+        "user": 7,
+        "name": "ФлораСервис",
+        "address": "Казань, ул. Гагарина, д. 5",
+        "contact_number": "+7 (111) 222-3333",
+        "email": "info@floraservice.ru",
+        "website": "",
+        "description": "Компания, специализирующаяся на продаже и обслуживании цветочных композиций и растений",
+        "created_at": "2023-06-02T10:45:00Z",
+        "updated_at": "2023-06-07T14:10:00Z"
+      }
+    },
+    {
+      "model": "companies.company",
+      "pk": 5,
+      "fields": {
+        "user": 9,
+        "name": "Модный Дом",
+        "address": "Москва, ул. Тверская, д. 15",
+        "contact_number": "+7 (999) 888-7777",
+        "email": "info@modnydom.ru",
+        "website": "https://www.modnydom.ru",
+        "description": "Модный розничный магазин одежды и аксессуаров",
+        "created_at": "2023-06-12T08:20:00Z",
+        "updated_at": "2023-06-17T16:05:00Z"
+      }
+    }
+  ]
+  
