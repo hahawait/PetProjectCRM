@@ -9,6 +9,7 @@ class Company(models.Model):
     class Meta:
         verbose_name = 'Компания'
         verbose_name_plural = 'Компании'
+        ordering = ['-updated_at']
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='Пользователь')
     name = models.CharField(max_length=255, verbose_name='Название компании')
@@ -69,4 +70,3 @@ class Job(models.Model):
     def close_job(self):
         self.is_open = False
         self.save()
-
