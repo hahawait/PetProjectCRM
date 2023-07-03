@@ -1,8 +1,9 @@
-from django.core.exceptions import PermissionDenied
-from django.contrib.auth.models import User
 from slugify import slugify
-from django.urls import reverse
+
 from django.db import models
+from django.urls import reverse
+from django.contrib.auth.models import User
+from django.core.exceptions import PermissionDenied
 
 
 class Company(models.Model):
