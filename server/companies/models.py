@@ -1,5 +1,7 @@
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth.models import User
+from slugify import slugify
+from django.urls import reverse
 from django.db import models
 
 
@@ -7,6 +9,7 @@ class Company(models.Model):
     '''Класс компании'''
 
     class Meta:
+        '''Сортировка по дате обновления'''
         verbose_name = 'Компания'
         verbose_name_plural = 'Компании'
         ordering = ['-updated_at']
@@ -37,14 +40,25 @@ class Contact(models.Model):
         verbose_name = 'Контактное лицо'
         verbose_name_plural = 'Контактные лица'
 
-    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='contacts', verbose_name='Компания')
+    company = models.ForeignKey(Company, on_delete=models.CASCADE,
+                                related_name='contacts', verbose_name='Компания')
     name = models.CharField(max_length=255, verbose_name='Имя контакта')
+    slug = models.SlugField(null=False)
     position = models.CharField(max_length=255, verbose_name='Должность')
     email = models.EmailField(verbose_name='Почта')
     phone_number = models.CharField(max_length=20, verbose_name='Телефон')
 
     def __str__(self):
         return f'{self.name}'
+
+    def get_absolute_url(self):
+        '''Получает ссылку на контактное лицо по слагу'''
+        return reverse("contact-detail", kwargs={"slug": self.slug})
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
 
 class Job(models.Model):
@@ -54,7 +68,8 @@ class Job(models.Model):
         verbose_name = 'Вакансия'
         verbose_name_plural = 'Вакансии'
 
-    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='jobs', verbose_name='Компания')
+    company = models.ForeignKey(Company, on_delete=models.CASCADE,
+                                related_name='jobs', verbose_name='Компания')
     title = models.CharField(max_length=255, verbose_name='Название вакансии')
     description = models.TextField(verbose_name='Описание')
     requirements = models.TextField(verbose_name='Требования')
@@ -68,5 +83,6 @@ class Job(models.Model):
         return f'{self.title} - {self.company.name}'
 
     def close_job(self):
+        '''Закрытие вакансии'''
         self.is_open = False
         self.save()

@@ -10,7 +10,7 @@ class CompanyAdmin(admin.ModelAdmin):
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('id', 'company', 'name', 'position', 'email')
     search_fields = ['id', 'company', 'name', 'position', 'email']
-
+    prepopulated_fields = {'slug': ('name',)}
 
 class JobAdmin(admin.ModelAdmin):
     list_display = ('id', 'company', 'title', 'is_open', 'created_at', 'updated_at')
