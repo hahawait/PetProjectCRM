@@ -17,6 +17,7 @@ class ContactAdmin(admin.ModelAdmin):
 class JobAdmin(admin.ModelAdmin):
     list_display = ('id', 'company', 'title', 'is_open', 'created_at', 'updated_at')
     search_fields = ['id', 'company', 'title', 'is_open', 'created_at', 'updated_at']
+    prepopulated_fields = {'slug': ('title',)}
 
 
 admin.site.register(Company, CompanyAdmin)

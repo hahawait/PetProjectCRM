@@ -30,6 +30,10 @@ class Company(models.Model):
         return f'{self.name}'
 
     def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
         if self.user.userrole.role != 'employer':
             raise PermissionDenied("Только работадатели 'employer' могут добавить компанию.")
         super().save(*args, **kwargs)
@@ -88,3 +92,9 @@ class Job(models.Model):
         '''Закрытие вакансии'''
         self.is_open = False
         self.save()
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
