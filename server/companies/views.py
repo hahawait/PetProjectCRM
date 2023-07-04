@@ -1,6 +1,7 @@
 from django.views import View
 from django.db.models import Q
 from django.http import HttpResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
 
@@ -39,35 +40,39 @@ def company_detail(request, company_id):
 def company_create(request):
     '''Создает объект компании'''
 
-    if request.method == 'GET':
-        return render(request, 'companies/company_create.html', {'form' : CompanyForm})
-
-    if request.method == 'POST':
-        form = CompanyForm(request.POST)
-        if form.is_valid():
-            company = form.save(commit=False)
-            user = request.user
-            if check_user_company(user):
-                return HttpResponse('Вы можете добавить только одну компанию')
-            else:
-                company.user = user
-                company.save()
-                return redirect('company-list')
+    user = request.user
+    if user.userrole.role == 'employer':
+        if not check_user_company(user):
+            if request.method == 'GET':
+                return render(request, 'companies/company_create.html', {'form' : CompanyForm()})
+            if request.method == 'POST':
+                form = CompanyForm(request.POST)
+                if form.is_valid():
+                    company = form.save(commit=False)
+                    company.user = user
+                    company.save()
+                    return redirect('company-list')
+        else:
+            return HttpResponse('Вы можете добавить только одну компанию')
+    else:
+        return HttpResponse('Только работадатели могут добавить компанию')
 
 
 @login_required
 def company_update(request):
     '''Изменяет существующую компанию пользователя'''
-
-    company = get_object_or_404(Company, user=request.user)
-    if request.method == 'GET':
-        form = CompanyForm(instance=company)
-
-    if request.method == 'POST':
-        form = CompanyForm(request.POST, instance=company)
-        if form.is_valid():
-            form.save()
-            return redirect('company-list')
+    user = request.user
+    if user.userrole.role == 'employer':
+        company = get_object_or_404(Company, user=request.user)
+        if request.method == 'GET':
+            form = CompanyForm(instance=company)
+        if request.method == 'POST':
+            form = CompanyForm(request.POST, instance=company)
+            if form.is_valid():
+                form.save()
+                return redirect('company-list')
+    else:
+        return HttpResponse('Только работадатели могут изменить компанию')
 
     return render(request, 'companies/company_update.html', {'form': form})
 
@@ -92,57 +97,48 @@ class ContactDetailView(View):
         return render(request, 'companies/contact_detail.html', {'contact': contact})
 
 
-class ContactCreateView(View):
+class ContactCreateView(LoginRequiredMixin, View):
     '''Создание контактного лица компании'''
 
-    def get(self, request, company_id):
-        '''Рендерит шаблон с формой, если пользователь - создатель компании'''
+    login_url = 'login'  # URL для перенаправления пользователя на страницу входа
 
-        company = Company.objects.select_related('user').get(pk=company_id)
-        if request.user != company.user:
-            return HttpResponse('Вы можете добавить контактное лицо только своей компании')
-        return render(request, 'companies/contact_create.html', {'form': ContactForm})
+    def get(self, request):
+        '''Рендерит шаблон с формой, если у пользователя есть компания'''
+
+        company = get_object_or_404(Company, user=request.user)
+        return render(request, 'companies/contact_create.html', {'form': ContactForm()})
 
 
-    def post(self, request, company_id):
-        '''Добавляет контактное лицо, если пользователь - создатель компании'''
+    def post(self, request):
+        '''Добавляет контактное лицо, если у пользователя есть компания'''
 
-        company = Company.objects.select_related('user').get(pk=company_id)
-        if request.user != company.user:
-            return HttpResponse('Вы можете добавить контактное лицо только своей компании')
-        else:
-            form = ContactForm(request.POST)
-            if form.is_valid():
-                contact = form.save(commit=False)
-                contact.company = company
-                contact.save()
-                return redirect('contact-list', company_id)
+        company = get_object_or_404(Company, user=request.user)
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            contact = form.save(commit=False)
+            contact.company = company
+            contact.save()
+            return redirect('contact-detail', company_id=company.id, slug=contact.slug)
 
 
 class ContactUpdateView(View):
     '''Изменение контактного лица'''
 
-    def get(self, request, company_id, slug):
+    def get(self, request, slug):
         '''Получение формы, если пользователь - создатель объекта компании'''
 
-        contact = get_object_or_404(Contact, company__id=company_id,
-                                    slug=slug, company__user=request.user)
+        contact = get_object_or_404(Contact, slug=slug, company__user=request.user)
         form = ContactForm(instance=contact)
         return render(request, 'companies/contact_update.html', {'form': form})
 
 
-    def post(self, request, company_id, slug):
+    def post(self, request, slug):
         '''Изменение существующего контакного лица'''
 
-        company = Company.objects.select_related('user').get(pk=company_id)
-        if request.user != company.user:
-            return HttpResponse('Вы можете изменить контактное лицо только своей компании')
-        else:
-            contact = get_object_or_404(Contact, company__id=company_id,
-                                        slug=slug, company__user=request.user)
-            form = ContactForm(request.POST, instance=contact)
-            if form.is_valid():
-                contact = form.save(commit=False)
-                contact.company = company
-                contact.save()
-                return redirect('contact-list', company_id)
+        contact = get_object_or_404(Contact, slug=slug, company__user=request.user)
+        form = ContactForm(request.POST, instance=contact)
+        if form.is_valid():
+            contact = form.save(commit=False)
+            contact.company = request.user.company
+            contact.save()
+            return redirect('contact-list', company_id=contact.company.id)

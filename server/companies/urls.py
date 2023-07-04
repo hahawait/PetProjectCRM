@@ -11,8 +11,8 @@ urlpatterns = [
     path('update/', company_update, name='company-update'),
 
     path('<int:company_id>/contacts/', ContactListView.as_view(), name='contact-list'),
-    path('<int:company_id>/contacts/create/', ContactCreateView.as_view(), name='contact-create'),
     path('<int:company_id>/contacts/<slug:slug>/', ContactDetailView.as_view(), name='contact-detail'),
-    path('<int:company_id>/contacts/<slug:slug>/update', ContactUpdateView.as_view(), name='contact-update'),
+    path('contacts/create/', ContactCreateView.as_view(), name='contact-create'),
+    path('contacts/<slug:slug>/update', ContactUpdateView.as_view(), name='contact-update'),
 
 ]
