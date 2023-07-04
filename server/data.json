@@ -1,0 +1,623 @@
+[
+    {
+      "model": "auth.user",
+      "pk": 1,
+      "fields": {
+        "username": "user1",
+        "password": "password1",
+        "email": "user1@example.com",
+        "first_name": "Иван",
+        "last_name": "Петров"
+      }
+    },
+    {
+      "model": "auth.user",
+      "pk": 2,
+      "fields": {
+        "username": "user2",
+        "password": "password2",
+        "email": "user2@example.com",
+        "first_name": "Екатерина",
+        "last_name": "Смирнова"
+      }
+    },
+    {
+      "model": "auth.user",
+      "pk": 3,
+      "fields": {
+        "username": "user3",
+        "password": "password3",
+        "email": "user3@example.com",
+        "first_name": "Алексей",
+        "last_name": "Иванов"
+      }
+    },
+    {
+      "model": "auth.user",
+      "pk": 4,
+      "fields": {
+        "username": "user4",
+        "password": "password4",
+        "email": "user4@example.com",
+        "first_name": "Мария",
+        "last_name": "Смирнова"
+      }
+    },
+    {
+      "model": "auth.user",
+      "pk": 5,
+      "fields": {
+        "username": "user5",
+        "password": "password5",
+        "email": "user5@example.com",
+        "first_name": "Александр",
+        "last_name": "Петров"
+      }
+    },
+    {
+      "model": "auth.user",
+      "pk": 6,
+      "fields": {
+        "username": "user6",
+        "password": "password6",
+        "email": "user6@example.com",
+        "first_name": "Ольга",
+        "last_name": "Соколова"
+      }
+    },
+    {
+      "model": "auth.user",
+      "pk": 7,
+      "fields": {
+        "username": "user7",
+        "password": "password7",
+        "email": "user7@example.com",
+        "first_name": "Андрей",
+        "last_name": "Кузнецов"
+      }
+    },
+    {
+      "model": "auth.user",
+      "pk": 8,
+      "fields": {
+        "username": "user8",
+        "password": "password8",
+        "email": "user8@example.com",
+        "first_name": "Наталья",
+        "last_name": "Морозова"
+      }
+    },
+    {
+      "model": "auth.user",
+      "pk": 9,
+      "fields": {
+        "username": "user9",
+        "password": "password9",
+        "email": "user9@example.com",
+        "first_name": "Дмитрий",
+        "last_name": "Волков"
+      }
+    },
+    {
+      "model": "auth.user",
+      "pk": 10,
+      "fields": {
+        "username": "user10",
+        "password": "password10",
+        "email": "user10@example.com",
+        "first_name": "Елена",
+        "last_name": "Попова"
+      }
+    },
+    {
+        "model": "accounts.userrole",
+        "pk": 1,
+        "fields": {
+          "user": 1,
+          "role": "employer"
+        }
+      },
+      {
+        "model": "accounts.userrole",
+        "pk": 2,
+        "fields": {
+          "user": 2,
+          "role": "employer"
+        }
+      },
+      {
+        "model": "accounts.userrole",
+        "pk": 3,
+        "fields": {
+          "user": 3,
+          "role": "employer"
+        }
+      },
+      {
+        "model": "accounts.userrole",
+        "pk": 4,
+        "fields": {
+          "user": 4,
+          "role": "employer"
+        }
+      },
+      {
+        "model": "accounts.userrole",
+        "pk": 5,
+        "fields": {
+          "user": 5,
+          "role": "employer"
+        }
+      },
+      {
+        "model": "accounts.userrole",
+        "pk": 6,
+        "fields": {
+          "user": 6,
+          "role": "employer"
+        }
+      },
+      {
+        "model": "accounts.userrole",
+        "pk": 7,
+        "fields": {
+          "user": 7,
+          "role": "employer"
+        }
+      },
+      {
+        "model": "accounts.userrole",
+        "pk": 8,
+        "fields": {
+          "user": 8,
+          "role": "employer"
+        }
+      },
+      {
+        "model": "accounts.userrole",
+        "pk": 9,
+        "fields": {
+          "user": 9,
+          "role": "employer"
+        }
+      },
+      {
+        "model": "accounts.userrole",
+        "pk": 10,
+        "fields": {
+          "user": 10,
+          "role": "employer"
+        }
+      },
+      {
+        "model": "companies.company",
+        "pk": 1,
+        "fields": {
+          "user": 1,
+          "name": "Рога и Копыта",
+          "slug": "roga-i-kopyta",
+          "address": "Москва, ул. Пушкина, д. 10",
+          "contact_number": "+7 (123) 456-7890",
+          "email": "info@rogaikopyta.com",
+          "website": "https://www.rogaikopyta.com",
+          "description": "Компания, занимающаяся производством и продажей товаров для животных",
+          "created_at": "2023-06-01T09:00:00Z",
+          "updated_at": "2023-06-05T15:30:00Z"
+        }
+      },
+      {
+        "model": "companies.company",
+        "pk": 2,
+        "fields": {
+          "user": 2,
+          "name": "Лапки и хвостики",
+          "slug": "lapki-i-hvostiki",
+          "address": "Санкт-Петербург, ул. Ленина, д. 20",
+          "contact_number": "+7 (123) 456-7891",
+          "email": "info@lapkihvostiki.com",
+          "website": "https://www.lapkihvostiki.com",
+          "description": "Магазин товаров для домашних питомцев: корма, игрушки, аксессуары",
+          "created_at": "2023-06-02T10:30:00Z",
+          "updated_at": "2023-06-06T16:45:00Z"
+        }
+      },
+      {
+        "model": "companies.company",
+        "pk": 3,
+        "fields": {
+          "user": 3,
+          "name": "Хвостатые друзья",
+          "slug": "hvostatye-druzya",
+          "address": "Екатеринбург, пр. Ленина, д. 5",
+          "contact_number": "+7 (123) 456-7892",
+          "email": "info@hvostatyedruzya.com",
+          "website": "https://www.hvostatyedruzya.com",
+          "description": "Интернет-магазин товаров для домашних животных: одежда, обувь, гаджеты",
+          "created_at": "2023-06-03T11:45:00Z",
+          "updated_at": "2023-06-07T17:15:00Z"
+        }
+      },
+      {
+        "model": "companies.company",
+        "pk": 4,
+        "fields": {
+          "user": 4,
+          "name": "Зоомагазин Дружок",
+          "slug": "zoomagazin-druzhok",
+          "address": "Новосибирск, ул. Кирова, д. 15",
+          "contact_number": "+7 (123) 456-7893",
+          "email": "info@zoomagazindruzhok.com",
+          "website": "https://www.zoomagazindruzhok.com",
+          "description": "Продажа кормов и аксессуаров для всех видов домашних животных",
+          "created_at": "2023-06-04T12:00:00Z",
+          "updated_at": "2023-06-08T18:30:00Z"
+        }
+      },
+      {
+        "model": "companies.company",
+        "pk": 5,
+        "fields": {
+          "user": 5,
+          "name": "Питомец",
+          "slug": "pitomets",
+          "address": "Казань, ул. Гагарина, д. 25",
+          "contact_number": "+7 (123) 456-7894",
+          "email": "info@pitomets.com",
+          "website": "https://www.pitomets.com",
+          "description": "Сеть магазинов товаров для животных: корма, лакомства, игрушки",
+          "created_at": "2023-06-05T13:15:00Z",
+          "updated_at": "2023-06-09T19:45:00Z"
+        }
+      },
+      {
+        "model": "companies.company",
+        "pk": 6,
+        "fields": {
+          "user": 6,
+          "name": "Зоосфера",
+          "slug": "zoosfera",
+          "address": "Ростов-на-Дону, пр. Пушкина, д. 30",
+          "contact_number": "+7 (123) 456-7895",
+          "email": "info@zoosfera.com",
+          "website": "https://www.zoosfera.com",
+          "description": "Магазин товаров для домашних питомцев: корма, лакомства, ветеринарные препараты",
+          "created_at": "2023-06-06T14:30:00Z",
+          "updated_at": "2023-06-10T20:00:00Z"
+        }
+      },
+      {
+        "model": "companies.company",
+        "pk": 7,
+        "fields": {
+          "user": 7,
+          "name": "Зоомир",
+          "slug": "zoomir",
+          "address": "Уфа, ул. Лермонтова, д. 35",
+          "contact_number": "+7 (123) 456-7896",
+          "email": "info@zoomir.com",
+          "website": "https://www.zoomir.com",
+          "description": "Специализированный магазин для животных: корма, игрушки, аксессуары",
+          "created_at": "2023-06-07T15:45:00Z",
+          "updated_at": "2023-06-11T21:15:00Z"
+        }
+      },
+      {
+        "model": "companies.company",
+        "pk": 8,
+        "fields": {
+          "user": 8,
+          "name": "Хвостик",
+          "slug": "hvostik",
+          "address": "Пермь, ул. Пушкина, д. 40",
+          "contact_number": "+7 (123) 456-7897",
+          "email": "info@hvostik.com",
+          "website": "https://www.hvostik.com",
+          "description": "Магазин товаров для домашних питомцев: корма, аксессуары, ветеринарные услуги",
+          "created_at": "2023-06-08T17:00:00Z",
+          "updated_at": "2023-06-12T22:30:00Z"
+          }
+      },
+      {
+        "model": "companies.company",
+        "pk": 9,
+        "fields": {
+          "user": 9,
+          "name": "Тропинка",
+          "slug": "tropinka",
+          "address": "Воронеж, пр. Ленина, д. 45",
+          "contact_number": "+7 (123) 456-7898",
+          "email": "info@tropinka.com",
+          "website": "https://www.tropinka.com",
+          "description": "Магазин товаров для животных: корма, гигиена, аксессуары",
+          "created_at": "2023-06-09T18:15:00Z",
+          "updated_at": "2023-06-13T23:45:00Z"
+        }
+      },
+      {
+        "model": "companies.company",
+        "pk": 10,
+        "fields": {
+          "user": 10,
+          "name": "Хвостохвост",
+          "slug": "hvostokhvost",
+          "address": "Красноярск, ул. Гагарина, д. 50",
+          "contact_number": "+7 (123) 456-7899",
+          "email": "info@hvostokhvost.com",
+          "website": "https://www.hvostokhvost.com",
+          "description": "Магазин товаров для домашних питомцев: корма, игрушки, аксессуары",
+          "created_at": "2023-06-10T19:30:00Z",
+          "updated_at": "2023-06-14T00:00:00Z"
+        }
+      },
+      {
+        "model": "companies.contact",
+        "pk": 1,
+        "fields": {
+          "company": 1,
+          "name": "Александр Смирнов",
+          "slug": "aleksandr-smirnov",
+          "position": "Менеджер по продажам",
+          "email": "smirnov@rogaikopyta.com",
+          "phone_number": "+7 (123) 456-7892"
+        }
+      },
+      {
+        "model": "companies.contact",
+        "pk": 2,
+        "fields": {
+          "company": 2,
+          "name": "Ольга Иванова",
+          "slug": "olga-ivanova",
+          "position": "Менеджер по закупкам",
+          "email": "ivanova@alexandrovtorg.ru",
+          "phone_number": "+7 (987) 654-3211"
+        }
+      },
+      {
+        "model": "companies.contact",
+        "pk": 3,
+        "fields": {
+          "company": 3,
+          "name": "Екатерина Петрова",
+          "slug": "ekaterina-petrova",
+          "position": "Маркетолог",
+          "email": "petrova@hvostatyedruzya.com",
+          "phone_number": "+7 (123) 456-7893"
+        }
+      },
+      {
+        "model": "companies.contact",
+        "pk": 4,
+        "fields": {
+          "company": 4,
+          "name": "Иван Кузнецов",
+          "slug": "ivan-kuznetsov",
+          "position": "Старший продавец",
+          "email": "kuznetsov@zoomagazindruzhok.com",
+          "phone_number": "+7 (123) 456-7894"
+        }
+      },
+      {
+        "model": "companies.contact",
+        "pk": 5,
+        "fields": {
+          "company": 5,
+          "name": "Мария Сидорова",
+          "slug": "maria-sidorova",
+          "position": "Специалист по клиентскому обслуживанию",
+          "email": "sidorova@pitomets.com",
+          "phone_number": "+7 (123) 456-7895"
+        }
+      },
+      {
+        "model": "companies.contact",
+        "pk": 6,
+        "fields": {
+          "company": 6,
+          "name": "Андрей Николаев",
+          "slug": "andrey-nikolaev",
+          "position": "Менеджер по закупкам",
+          "email": "nikolaev@zoosfera.com",
+          "phone_number": "+7 (123) 456-7896"
+        }
+      },
+      {
+        "model": "companies.contact",
+        "pk": 7,
+        "fields": {
+          "company": 7,
+          "name": "Татьяна Морозова",
+          "slug": "tatiana-morozova",
+          "position": "Менеджер по продажам",
+          "email": "morozova@zoomir.com",
+          "phone_number": "+7 (123) 456-7897"
+        }
+      },
+      {
+        "model": "companies.contact",
+        "pk": 8,
+        "fields": {
+          "company": 8,
+          "name": "Дмитрий Егоров",
+          "slug": "dmitriy-egorov",
+          "position": "Финансовый директор",
+          "email": "egorov@hvostik.com",
+          "phone_number": "+7 (123) 456-7898"
+        }
+      },
+      {
+        "model": "companies.contact",
+        "pk": 9,
+        "fields": {
+          "company": 9,
+          "name": "Анна Ковалева",
+          "slug": "anna-kovaleva",
+          "position": "Менеджер по закупкам",
+          "email": "kovaleva@tropinka.com",
+          "phone_number": "+7 (123) 456-7899"
+        }
+      },
+      {
+        "model": "companies.contact",
+        "pk": 10,
+        "fields": {
+        "company": 10,
+        "name": "Сергей Федоров",
+        "slug": "sergey-fedorov",
+        "position": "Менеджер по продажам",
+        "email": "fedorov@hvostokhvost.com",
+        "phone_number": "+7 (123) 456-7900"
+        }
+      },
+      {
+        "model": "companies.job",
+        "pk": 1,
+        "fields": {
+          "company": 1,
+          "title": "Менеджер по продажам",
+          "slug": "menedzher-po-prodazham",
+          "description": "Компания 'Рога и копыта' ищет опытного менеджера по продажам для продвижения наших товаров на рынке.",
+          "requirements": "Требования:\n- Опыт работы в продажах не менее 3 лет\n- Умение вести переговоры с клиентами\n- Знание продукции компании",
+          "conditions": "Условия:\n- Гибкий график работы\n- Конкурентная заработная плата\n- Возможность профессионального роста",
+          "is_open": true,
+          "created_at": "2023-06-20T09:00:00Z",
+          "updated_at": "2023-06-25T14:30:00Z"
+        }
+      },
+      {
+        "model": "companies.job",
+        "pk": 2,
+        "fields": {
+          "company": 2,
+          "title": "Продавец-консультант",
+          "slug": "prodavec-konsultant",
+          "description": "Магазин 'Лапки и хвостики' ищет ответственного и дружелюбного продавца-консультанта для обслуживания клиентов и консультации по товарам для домашних питомцев.",
+          "requirements": "Требования:\n- Опыт работы в продажах\n- Знание ассортимента товаров для животных\n- Коммуникабельность и умение работать в команде",
+          "conditions": "Условия:\n- Гибкий график работы\n- Конкурентная заработная плата\n- Дружный коллектив",
+          "is_open": true,
+          "created_at": "2023-06-21T10:30:00Z",
+          "updated_at": "2023-06-26T16:45:00Z"
+        }
+      },
+      {
+        "model": "companies.job",
+        "pk": 3,
+          "fields": {
+          "company": 3,
+          "title": "Менеджер по закупкам",
+          "slug": "menedzher-po-zakupkam",
+          "description": "Компания 'Хвостатые друзья' ищет опытного менеджера по закупкам для подбора и закупки товаров для интернет-магазина.",
+          "requirements": "Требования:\n- Опыт работы в сфере закупок\n- Умение вести переговоры с поставщиками\n- Аналитические навыки",
+          "conditions": "Условия:\n- Гибкий график работы\n- Конкурентная заработная плата\n- Возможность карьерного роста",
+          "is_open": true,
+          "created_at": "2023-06-22T11:45:00Z",
+        "updated_at": "2023-06-27T17:15:00Z"
+        }
+      },
+      {
+        "model": "companies.job",
+        "pk": 4,
+        "fields": {
+          "company": 4,
+          "title": "Ветеринарный врач",
+          "slug": "veterinarnyj-vrach",
+          "description": "Зоомагазин 'Зоомагазин Дружок' ищет ветеринарного врача для консультации клиентов и оказания ветеринарной помощи животным.",
+          "requirements": "Требования:\n- Высшее ветеринарное образование\n- Опыт работы ветеринарным врачом\n- Знание заболеваний и лечение животных",
+          "conditions": "Условия:\n- Гибкий график работы\n- Конкурентная заработная плата\n- Современное оборудование и условия работы",
+          "is_open": true,
+          "created_at": "2023-06-23T12:00:00Z",
+          "updated_at": "2023-06-28T18:30:00Z"
+        }
+      },
+      {
+        "model": "companies.job",
+        "pk": 5,
+        "fields": {
+          "company": 5,
+          "title": "Администратор магазина",
+          "slug": "administrator-magazina",
+          "description": "Сеть магазинов 'Питомец' ищет ответственного администратора для контроля работы магазина и обслуживания клиентов.",
+          "requirements": "Требования:\n- Опыт работы в административной сфере\n- Умение решать проблемы и конфликты\n- Коммуникабельность",
+          "conditions": "Условия:\n- Гибкий график работы\n- Конкурентная заработная плата\n- Возможность карьерного роста",
+          "is_open": true,
+          "created_at": "2023-06-24T13:15:00Z",
+          "updated_at": "2023-06-29T19:45:00Z"
+        }
+      },
+      {
+        "model": "companies.job",
+        "pk": 6,
+        "fields": {
+          "company": 6,
+          "title": "Ветеринарный ассистент",
+          "slug": "veterinarnyj-assistent",
+          "description": "Магазин 'Зоосфера' ищет ветеринарного ассистента для помощи в проведении процедур и ухода за животными.",
+          "requirements": "Требования:\n- Знание основ ветеринарной медицины\n- Опыт работы с животными\n- Ответственность и забота о животных",
+          "conditions": "Условия:\n- Гибкий график работы\n- Дружный коллектив\n- Возможность профессионального развития",
+          "is_open": true,
+          "created_at": "2023-06-25T14:30:00Z",
+          "updated_at": "2023-06-30T20:00:00Z"
+        }
+      },
+      {
+        "model": "companies.job",
+        "pk": 7,
+        "fields": {
+          "company": 7,
+          "title": "Продавец-консультант",
+          "slug": "prodavec-konsultant",
+          "description": "Магазин 'Зоомир' ищет опытного продавца-консультанта для консультации клиентов и продажи товаров для животных.",
+          "requirements": "Требования:\n- Опыт работы в продажах\n- Знание ассортимента товаров для животных\n- Коммуникабельность и умение работать с клиентами",
+          "conditions": "Условия:\n- Гибкий график работы\n- Конкурентная заработная плата\n- Дружный коллектив",
+          "is_open": true,
+          "created_at": "2023-06-26T15:45:00Z",
+          "updated_at": "2023-07-01T21:15:00Z"
+        }
+      },
+      {
+        "model": "companies.job",
+        "pk": 8,
+        "fields": {
+          "company": 8,
+          "title": "Специалист по маркетингу",
+          "slug": "specialist-po-marketingu",
+          "description": "Компания 'Хвостик' ищет креативного и аналитического специалиста по маркетингу для разработки и проведения маркетинговых акций.",
+          "requirements": "Требования:\n- Опыт работы в маркетинге\n- Знание основных инструментов маркетинга\n- Аналитические навыки",
+          "conditions": "Условия:\n- Гибкий график работы\n- Конкурентная заработная плата\n- Возможность профессионального роста",
+          "is_open": true,
+          "created_at": "2023-06-27T17:00:00Z",
+          "updated_at": "2023-07-02T22:30:00Z"
+        }
+      },
+      {
+        "model": "companies.job",
+        "pk": 9,
+        "fields": {
+          "company": 9,
+          "title": "Ветеринарный фельдшер",
+          "slug": "veterinarnyj-feldsher",
+          "description": "Магазин 'Тропинка' ищет ветеринарного фельдшера для проведения процедур и консультации по здоровью животных.",
+          "requirements": "Требования:\n- Образование ветеринарного фельдшера\n- Опыт работы с животными\n- Знание основ ветеринарной медицины",
+          "conditions": "Условия:\n- Гибкий график работы\n- Дружный коллектив\n- Возможность профессионального развития",
+          "is_open": true,
+          "created_at": "2023-06-28T18:15:00Z",
+          "updated_at": "2023-07-03T23:45:00Z"
+        }
+      },  
+      {
+        "model": "companies.job",
+        "pk": 10,
+        "fields": {
+          "company": 10,
+          "title": "Менеджер по логистике",
+          "slug": "menedzher-po-logistike",
+          "description": "Компания 'Хвостохвост' ищет опытного менеджера по логистике для организации доставки товаров по городу и регионам.",
+          "requirements": "Требования:\n- Опыт работы в логистике\n- Знание основных принципов логистики\n- Умение планировать и оптимизировать доставку",
+          "conditions": "Условия:\n- Гибкий график работы\n- Конкурентная заработная плата\n- Возможность профессионального роста",
+          "is_open": true,
+          "created_at": "2023-06-29T19:30:00Z",
+          "updated_at": "2023-07-04T00:00:00Z"
+        }
+      }
+  ]
+  
