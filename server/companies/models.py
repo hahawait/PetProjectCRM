@@ -16,14 +16,15 @@ class Company(models.Model):
         ordering = ['-updated_at']
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='Пользователь')
-    name = models.CharField(max_length=255, verbose_name='Название компании')
-    address = models.CharField(max_length=255, verbose_name='Адрес')
-    contact_number = models.CharField(max_length=20, verbose_name='Телефон')
-    email = models.EmailField(verbose_name='Почта')
-    website = models.URLField(blank=True, verbose_name='Сайт')
-    description = models.TextField(blank=True, verbose_name='Описание')
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
-    updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
+    name = models.CharField('Название компании', max_length=255)
+    slug = models.SlugField('URL', null=False, unique=True, default='')
+    address = models.CharField('Адрес', max_length=255)
+    contact_number = models.CharField('Телефон', max_length=20)
+    email = models.EmailField('Почта')
+    website = models.URLField('Сайт', blank=True)
+    description = models.TextField('Описание', blank=True)
+    created_at = models.DateTimeField('Дата создания', auto_now_add=True)
+    updated_at = models.DateTimeField('Дата обновления', auto_now=True)
 
     def __str__(self):
         return f'{self.name}'
@@ -43,11 +44,11 @@ class Contact(models.Model):
 
     company = models.ForeignKey(Company, on_delete=models.CASCADE,
                                 related_name='contacts', verbose_name='Компания')
-    name = models.CharField(max_length=255, verbose_name='Имя контакта')
-    slug = models.SlugField(null=False)
-    position = models.CharField(max_length=255, verbose_name='Должность')
-    email = models.EmailField(verbose_name='Почта')
-    phone_number = models.CharField(max_length=20, verbose_name='Телефон')
+    name = models.CharField('Имя контакта', max_length=255)
+    slug = models.SlugField('URL', null=False)
+    position = models.CharField('Должность', max_length=255)
+    email = models.EmailField('Почта')
+    phone_number = models.CharField('Телефон', max_length=20)
 
     def __str__(self):
         return f'{self.name}'
@@ -71,14 +72,14 @@ class Job(models.Model):
 
     company = models.ForeignKey(Company, on_delete=models.CASCADE,
                                 related_name='jobs', verbose_name='Компания')
-    title = models.CharField(max_length=255, verbose_name='Название вакансии')
-    description = models.TextField(verbose_name='Описание')
-    requirements = models.TextField(verbose_name='Требования')
-    conditions = models.TextField(verbose_name='Условия')
-    is_open = models.BooleanField(default=True, verbose_name='Открыта')
-
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
-    updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
+    title = models.CharField('Название вакансии', max_length=255)
+    slug = models.SlugField('URL', null=True, default='')
+    description = models.TextField('Описание')
+    requirements = models.TextField('Требования')
+    conditions = models.TextField('Условия')
+    is_open = models.BooleanField('Статус', default=True)
+    created_at = models.DateTimeField('Дата создания', auto_now_add=True)
+    updated_at = models.DateTimeField('Дата обновления', auto_now=True)
 
     def __str__(self):
         return f'{self.title} - {self.company.name}'
